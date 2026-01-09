@@ -6,15 +6,18 @@ let student = {
     ]
 }
 
-// print name of the student
-console.log(student.name);
+let student2 = {
+    name: "Max",
+    studentId: "CC0000",
+    grades: [5, 4]
+}
+
 
 // print the average of grades of the student
 function calculateAverage(arrayOfNumbers)
 {
     let sum = 0;
     for(let i = 0; i < arrayOfNumbers.length; i++) {
-        console.log(arrayOfNumbers[i]);
         sum += arrayOfNumbers[i];
     }
 
@@ -22,5 +25,10 @@ function calculateAverage(arrayOfNumbers)
     return avg;
 }
 
-let avg = calculateAverage(student.grades);
-console.log('The average of ' + student.name + ' is ' + avg);
+function printStudentGPAInfo(studentToProcess) {
+    let avg = calculateAverage(studentToProcess.grades);
+    console.log(studentToProcess.name + ' (ID: ' + studentToProcess.studentId + ') has GPA of ' + avg);
+}
+
+printStudentGPAInfo(student)
+printStudentGPAInfo(student2)
