@@ -37,4 +37,30 @@ let germany = {
     GDP: 3845.6, // in billion USD,
     iso3166: "DE"
 }
+// Ex2
+function printCountryInfo(c) {
+    //console.log("Belgium, population 224323432");
+    console.log(c.name + ", population " + c.population);
+}
 
+printCountryInfo(belgium);
+printCountryInfo(sweden);
+printCountryInfo(france);
+printCountryInfo(germany);
+
+
+//Ex3
+const countries = [belgium, sweden, france, germany];
+
+function findCountryWithMaxPopulation(cs) {
+    let maxPop = 0;
+    for(let i = 0; i < cs.length; i++) {
+        if(cs[i].population > maxPop) {
+            maxPop = cs[i].population;
+        }
+    }
+
+    return maxPop;
+}
+
+console.log(findCountryWithMaxPopulation(countries));
