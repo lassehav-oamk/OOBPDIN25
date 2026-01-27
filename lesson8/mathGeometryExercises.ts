@@ -80,6 +80,20 @@ class Circle extends Shape {
             throw new Error("Negative circle diameter not allowed");
         }
     }
+
+    containsPoint(x: number, y: number): boolean {
+        /*let math =  new Math();
+        math.something()*/
+        //Math.something(); // something is a static method, you do not need to create an instance
+        let dx = x - this.x;
+        let dy = y - this.y;
+        let distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        if(distance <= this.#radius) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 
@@ -115,3 +129,17 @@ console.log('TestCirlce 1 area: ' + testCirc1.calculateArea());
 console.log('TestCirlce 1 perimeter: ' + testCirc1.calculatePerimeterLength());
 console.log('TestCircle 1 radius: ' + testCirc1.getRadius());
 console.log('TestCircle 1 diameter: ' + testCirc1.getDiameter());
+
+// Test for containsPoint method
+let containsCircle = new Circle(0, 0, "green", 10);
+// test only in x axis
+console.log(containsCircle.containsPoint(5, 0)); // Expected: true
+console.log(containsCircle.containsPoint(-11, 0)); // Expected: false
+
+// test only in y axis
+console.log(containsCircle.containsPoint(0, 7)); // Expected: true
+console.log(containsCircle.containsPoint(0, -12)); // Expected: false
+
+// test in both axis
+console.log(containsCircle.containsPoint(2, 2)); // Expected: true
+console.log(containsCircle.containsPoint(20, 20)); // Expected: false
